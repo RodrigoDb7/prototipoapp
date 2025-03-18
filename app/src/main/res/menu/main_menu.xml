@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_project"
+        android:title="Projeto">
+        <menu>
+            <item
+                android:id="@+id/new_project"
+                android:title="Novo Projeto" />
+            <item
+                android:id="@+id/open_project"
+                android:title="Abrir Projeto" />
+            <item
+                android:id="@+id/manage_speakers"
+                android:title="Gerenciar Falantes" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_export"
+        android:title="Exportar">
+        <menu>
+            <item
+                android:id="@+id/export_csv"
+                android:title="Exportar CSV" />
+            <item
+                android:id="@+id/export_elan"
+                android:title="Exportar ELAN" />
+            <item
+                android:id="@+id/export_xml"
+                android:title="Exportar XML" />
+        </menu>
+    </item>
+</menu>
