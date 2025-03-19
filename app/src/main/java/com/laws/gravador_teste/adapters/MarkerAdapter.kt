@@ -68,7 +68,7 @@ class MarkerAdapter(
             transcriptionTextView.text = marker.transcription
             translationTextView.text = marker.translation
 
-            // Se houver um speaker, atualize o texto
+            // Se houver um speaker, atualizar
             speakerTextView.text = if (marker.speaker != null)
                 "Falante: ${marker.speaker?.name}"
             else
@@ -146,7 +146,7 @@ class MarkerAdapter(
                 // Iniciar gravação
                 onRecordTranscription(position)
                 isRecordingTranscription = true
-                isRecordingTranslation = false // Garante que apenas uma gravação ocorra de cada vez
+                isRecordingTranslation = false // garantir que apenas uma gravação ocorra por vez
                 recordTranscriptionButton.setImageResource(android.R.drawable.ic_media_pause)
                 recordTranslationButton.setImageResource(android.R.drawable.ic_btn_speak_now)
             }
@@ -162,7 +162,7 @@ class MarkerAdapter(
                 // Iniciar gravação
                 onRecordTranslation(position)
                 isRecordingTranslation = true
-                isRecordingTranscription = false // Garante que apenas uma gravação ocorra de cada vez
+                isRecordingTranscription = false // garantir que apenas uma gravação ocorra por vez
                 recordTranslationButton.setImageResource(android.R.drawable.ic_media_pause)
                 recordTranscriptionButton.setImageResource(android.R.drawable.ic_btn_speak_now)
             }

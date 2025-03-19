@@ -57,7 +57,7 @@ class WaveformView @JvmOverloads constructor(
 
     private fun calculatePeaks() {
         audioData?.let { data ->
-            val numPeaks = width / 2 // 2 pixels per peak
+            val numPeaks = width / 2 //
             sampleStep = max(1, data.size / numPeaks)
             peaks = FloatArray(numPeaks)
 

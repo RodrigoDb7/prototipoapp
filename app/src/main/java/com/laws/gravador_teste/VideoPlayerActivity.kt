@@ -117,8 +117,8 @@ class VideoPlayerActivity : AppCompatActivity() {
                 markerAdapter.notifyItemRemoved(position)
             },
             onPlaySegment = { marker, shouldLoop -> playSegment(marker, shouldLoop) },
-            onRecordTranscription = { position -> /* Implementar se necessário */ },
-            onRecordTranslation = { position -> /* Implementar se necessário */ },
+            onRecordTranscription = { position ->  },
+            onRecordTranslation = { position ->  },
             onSpeakerSelect = { position -> showSelectSpeakerForMarkerDialog(position) }
         )
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -150,7 +150,7 @@ class VideoPlayerActivity : AppCompatActivity() {
 
     private fun showSelectSpeakerForMarkerDialog(position: Int) {
         try {
-            // Verificar se temos um projeto com falantes
+            // Verificar se tem um projeto com falantes
             if (currentProject?.speakers?.isEmpty() != false) {
                 Toast.makeText(this, "Não há falantes cadastrados. Adicione falantes primeiro.", Toast.LENGTH_SHORT).show()
                 return
@@ -186,8 +186,7 @@ class VideoPlayerActivity : AppCompatActivity() {
                     // Atualizar o projeto com os novos dados
                     currentProject?.let { project ->
                         project.markers = markers
-                        // Se você tiver um ProjectManager na VideoPlayerActivity
-                        // projectManager.saveProject(project)
+
                     }
 
                     Toast.makeText(this, "Falante atualizado", Toast.LENGTH_SHORT).show()

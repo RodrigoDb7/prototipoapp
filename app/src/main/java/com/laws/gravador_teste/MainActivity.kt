@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 exportData("eaf")
                 true
             }
-            R.id.export_xml -> {  // Nova opção
+            R.id.export_xml -> {
                 exportData("xml")
                 true
             }
@@ -286,7 +286,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSelectSpeakersForAudioDialog(audioFile: AudioFile) {
-        // Verificar se temos um projeto atual
+        // Verifica a existencia de um projeto atual
 
         try {
             Log.d("SpeakerDebug", "Iniciando diálogo de seleção de falantes")
@@ -392,7 +392,7 @@ class MainActivity : AppCompatActivity() {
         try {
             Log.d("SpeakerDebug", "showSelectSpeakerForMarkerDialog chamado para posição $position")
 
-            // Verificar se temos um projeto com falantes
+            // Verificar se tem um projeto com falantes
             if (currentProject == null) {
                 Log.d("SpeakerDebug", "currentProject é nulo")
                 Toast.makeText(this, "Nenhum projeto ativo. Crie um projeto primeiro.", Toast.LENGTH_SHORT).show()
@@ -434,7 +434,7 @@ class MainActivity : AppCompatActivity() {
                 .setSingleChoiceItems(speakerNames.toTypedArray(), currentSelection) { dialog, which ->
                     Log.d("SpeakerDebug", "Item selecionado: $which (${speakerNames[which]})")
 
-                    // Obter o falante selecionado (null se "Nenhum" foi selecionado)
+                    // Obter o falante selecionado (null se "Nenhum" for selecionado)
                     val selectedSpeaker = if (which == 0) null else currentProject?.speakers?.get(which - 1)
 
                     Log.d("SpeakerDebug", "Falante selecionado: ${selectedSpeaker?.name ?: "nenhum"}")
@@ -558,7 +558,7 @@ class MainActivity : AppCompatActivity() {
     private fun showSpeakersDialog() {
         val dialog = AlertDialog.Builder(this)
             .setTitle("Gerenciar Falantes")
-            .setView(R.layout.dialog_speakers_list)  // CORRIGIDO para usar o layout correto
+            .setView(R.layout.dialog_speakers_list)
             .setNegativeButton("Fechar", null)
             .create()
 
@@ -642,7 +642,7 @@ class MainActivity : AppCompatActivity() {
 
             dialog.dismiss()
 
-            // Chamar o callback com o novo falante
+            // callback com o novo falante
             onSpeakerAdded(speaker)
         }
     }
@@ -830,11 +830,10 @@ class MainActivity : AppCompatActivity() {
                     projectManager.saveCurrentProjectId(project.id)
                 }
             } else {
-                // Se já existe um projeto, apenas atualizar o audioPath
-                // e possivelmente outras propriedades relevantes, sem apagar os falantes
+
+
                 currentProject?.let { project ->
-                    // Aqui você pode atualizar propriedades do projeto se necessário,
-                    // mas sem recriar o objeto Project inteiro
+
                     projectManager.saveProject(project)
                 }
             }
@@ -1234,7 +1233,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             PICK_AUDIO_FILE -> {
-                // Seu código existente para arquivos de áudio
+
                 if (resultCode == Activity.RESULT_OK) {
                     data?.data?.let { uri ->
                         loadAudioFromUri(uri)
@@ -1290,7 +1289,7 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.seekTo(time.toInt())
     }
 
-    private var currentMarker: Marker? = null // Adicione esta variável na classe
+    private var currentMarker: Marker? = null
 
     private fun addMarker() {
         try {

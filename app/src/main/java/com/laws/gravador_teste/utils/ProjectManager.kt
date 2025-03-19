@@ -58,7 +58,7 @@ class ProjectManager(private val context: Context) {
             Log.d("ProjectDebug", "Projeto carregado: ${project.name}, ID: ${project.id}")
             Log.d("ProjectDebug", "Número de falantes: ${project.speakers.size}")
 
-            // Listar todos os falantes para verificação
+            // Lista todos os falantes para verificação
             project.speakers.forEachIndexed { index, speaker ->
                 Log.d("ProjectDebug", "Falante $index: ${speaker.name}, ID: ${speaker.id}")
             }
